@@ -36,7 +36,6 @@ function getInputs(input) {
 }
 
 function input() {
-  console.log(storageObj);
   storageObj[this.name] = this.value;
   setData(LOCAL_FIELDS, JSON.stringify(storageObj));
 }
