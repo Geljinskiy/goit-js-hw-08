@@ -7,7 +7,6 @@ function setData(key, value) {
 }
 
 /**
- *
  * @param {string} key - key value
  */
 function removeData(key) {

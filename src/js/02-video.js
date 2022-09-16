@@ -8,10 +8,22 @@ const throttle = require('lodash/throttle');
 
 player.on('timeupdate', throttle(saveTime, 1000));
 
-player.setCurrentTime(getData(LOCAL_TIME));
+setTime(LOCAL_TIME);
 
 function saveTime() {
   player.getCurrentTime().then(seconds => {
     setData(LOCAL_TIME, seconds);
   });
+}
+
+/**
+ * @param {string} timeName - the key of saved time
+ * @returns {method}
+ */
+function setTime(timeName) {
+  const time = getData(timeName);
+  if (!time) {
+    return;
+  }
+  return player.setCurrentTime(time);
 }
